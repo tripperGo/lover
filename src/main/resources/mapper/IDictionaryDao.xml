@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mright.lover.platform.dao.IDictionaryDao">
+
+    <select id="listDicByTypeNoRoot" resultType="com.mright.lover.platform.entity.Dictionary" parameterType="string">
+        select
+         id, pid, `key`, `value`, `type`, sort from t_dictionary where `type` = #{type} and pid != "root"
+    </select>
+
+</mapper>
