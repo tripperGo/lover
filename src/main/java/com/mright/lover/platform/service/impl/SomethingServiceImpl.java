@@ -23,8 +23,13 @@ public class SomethingServiceImpl implements ISomethingService {
     @Override
     public List<Something> listSomethingByKey(String key, String username) {
         if(StringUtils.isEmpty(key)){
-            return Collections.emptyList();
+            return iSomethingDao.listSomething(username);
         }
         return iSomethingDao.listSomethingByKeyAndUsername(key, username);
+    }
+
+    @Override
+    public List<Something> listSomething(String username) {
+        return iSomethingDao.listSomething(username);
     }
 }

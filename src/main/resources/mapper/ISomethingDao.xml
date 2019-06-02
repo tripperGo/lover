@@ -2,7 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.mright.lover.platform.dao.ISomethingDao">
 
-    <select id="listSomethingByKeyAndUsername" resultType="com.mright.lover.platform.entity.Something" parameterType="string">
+    <select id="listSomethingByKeyAndUsername" resultType="com.mright.lover.platform.entity.Something"
+            parameterType="string">
         SELECT
         a.id, a.title, a.family_id familyId, a.prefecture_key prefectureKey, a.start_time startTime, a.end_time endTime, a.go_over goOver
         FROM
@@ -13,6 +14,18 @@
         ON b.`id` = c.`family_id`
         WHERE
         a.prefecture_key = #{key} AND c.`username`=#{username}
+    </select>
+
+    <select id="listSomething" resultType="com.mright.lover.platform.entity.Something">
+        SELECT
+        a.id, a.title, a.family_id familyId, a.prefecture_key prefectureKey, a.start_time startTime, a.end_time endTime, a.go_over goOver
+        FROM
+        `t_somethings` a
+        LEFT JOIN `sys_family` b
+        ON a.`family_id` = b.`id`
+        LEFT JOIN `sys_user` c
+        ON b.`id` = c.`family_id`
+        WHERE c.`username`=#{username}
     </select>
 
 </mapper>

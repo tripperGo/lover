@@ -8,7 +8,7 @@ function initSomething() {
         var keyStr = params[1];
         if (keyStr) {
             var key = keyStr.replace("key=", "");
-            if (key) {
+            // if (key) {
                 $.ajax({
                     url: "something/list/" + key,
                     data: {},
@@ -25,7 +25,7 @@ function initSomething() {
                         }
                     }
                 });
-            }
+            // }
         }
     }
 }

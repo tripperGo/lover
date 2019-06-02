@@ -4,12 +4,12 @@
 
     <select id="listDicByTypeNoRoot" resultType="com.mright.lover.platform.entity.Dictionary" parameterType="string">
         select
-         id, pid, `key`, `value`, `type`, sort, appender, status from t_dictionary where `type` = #{type} and pid != "root" and status = 1
+         id, pid, `key`, `value`, `type`, sort, appender, status from t_dictionary where `type` = #{type} and pid != "root" and status = 1 order by sort asc
     </select>
 
     <select id="listAllDicByTypeNoRoot" resultType="com.mright.lover.platform.entity.Dictionary" parameterType="string">
         select
-         id, pid, `key`, `value`, `type`, sort, appender, status from t_dictionary where `type` = #{type} and pid != "root"
+         id, pid, `key`, `value`, `type`, sort, appender, status from t_dictionary where `type` = #{type} and pid != "root" order by sort asc
     </select>
 
     <update id="update" parameterType="com.mright.lover.platform.entity.Dictionary">

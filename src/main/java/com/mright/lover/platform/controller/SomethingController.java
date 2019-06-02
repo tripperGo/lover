@@ -24,7 +24,12 @@ public class SomethingController {
     }
 
     @GetMapping("/list/{key}")
-    public List<Something> listSomethingByKey(@PathVariable(name = "key") String key) {
+    public List<Something> listSomethingByKey(@PathVariable(name = "key", required = false) String key) {
         return iSomethingService.listSomethingByKey(key, ((UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUsername());
+    }
+
+    @GetMapping("/list")
+    public List<Something> listSomething() {
+        return iSomethingService.listSomething(((UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUsername());
     }
 }
