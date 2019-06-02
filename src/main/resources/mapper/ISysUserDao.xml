@@ -3,7 +3,27 @@
 <mapper namespace="com.mright.lover.platform.dao.ISysUserDao">
 
     <select id="getUserById" resultType="com.mright.lover.platform.entity.SysUser" parameterType="int">
-        select id, username, password from sys_user where id = #{id}
+        select
+        id, username, password, family_id familyId
+        from sys_user
+        where id = #{id}
     </select>
 
+    <select id="getUserByUsername" resultType="com.mright.lover.platform.entity.SysUser" parameterType="string">
+        select
+        id, username, password, family_id familyId
+        from sys_user
+        where username = #{username}
+    </select>
+
+    <insert id="createUser"
+            parameterType="com.mright.lover.platform.entity.SysUser"
+            useGeneratedKeys="true"
+            keyProperty="id">
+        INSERT INTO
+        `sys_user`
+        (username, `password`, family_id)
+        VALUES
+        (#{username}, #{password}, #{familyId})
+    </insert>
 </mapper>

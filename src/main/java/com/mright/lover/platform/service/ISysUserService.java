@@ -15,4 +15,12 @@ public interface ISysUserService {
      * @return 用户详情
      */
     SysUser getUserById(Integer id);
+
+    /**
+     * 创建用户
+     *
+     * @param user 用户实体
+     * @return 结果
+     */
+    SysUser createUser(SysUser user);
 }

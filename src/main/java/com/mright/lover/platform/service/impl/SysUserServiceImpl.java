@@ -1,11 +1,11 @@
 package com.mright.lover.platform.service.impl;
 
-import com.mright.lover.platform.dao.IDictionaryDao;
 import com.mright.lover.platform.dao.ISysUserDao;
-import com.mright.lover.platform.entity.Dictionary;
 import com.mright.lover.platform.entity.SysUser;
 import com.mright.lover.platform.service.ISysUserService;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 /**
@@ -17,18 +17,32 @@ import org.springframework.stereotype.Service;
 public class SysUserServiceImpl implements ISysUserService {
 
     private final ISysUserDao iSysUserDao;
-    private final IDictionaryDao iDictionaryDao;
+    private final PasswordEncoder passwordEncoder;
 
     @Autowired
     public SysUserServiceImpl(ISysUserDao iSysUserDao,
-                              IDictionaryDao iDictionaryDao) {
+                              PasswordEncoder passwordEncoder) {
         this.iSysUserDao = iSysUserDao;
-        this.iDictionaryDao = iDictionaryDao;
+        this.passwordEncoder = passwordEncoder;
     }
 
     @Override
     public SysUser getUserById(Integer id) {
-        Dictionary aa = iDictionaryDao.listDicByTypeNoRoot("perfecture");
         return iSysUserDao.getUserById(id);
+    }
+
+    @Override
+    public SysUser createUser(SysUser user) {
+        if (StringUtils.isEmpty(user.getUsername())) {
+            return null;
+        } else if (StringUtils.isEmpty(user.getPassword())) {
+            return null;
+        } else if (user.getFamilyId() == null) {
+            return null;
+        }
+
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        iSysUserDao.createUser(user);
+        return user;
     }
 }

@@ -12,6 +12,15 @@ public class SysUser implements Serializable {
     private Integer id;
     private String username;
     private String password;
+    private Integer familyId;
+
+    public Integer getFamilyId() {
+        return familyId;
+    }
+
+    public void setFamilyId(Integer familyId) {
+        this.familyId = familyId;
+    }
 
     public Integer getId() {
         return id;

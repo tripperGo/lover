@@ -1,5 +1,5 @@
 server:
-  port: 8085
+  port: 80
 spring:
   application:
     name: lover
@@ -11,3 +11,5 @@ spring:
 mybatis:
   mapper-locations: classpath:mapper/*.xml
   type-aliases-package: com.mright.lover.platform.entity
+logging:
+  level.com.mright.lover.platform.dao: DEBUG

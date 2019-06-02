@@ -4,6 +4,8 @@ import com.mright.lover.platform.entity.Dictionary;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 /**
  * @author: mright
  * @date: Created in 2019/6/1 9:17 PM
@@ -12,5 +14,11 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface IDictionaryDao {
 
-    Dictionary listDicByTypeNoRoot(@Param("type") String type);
+    List<Dictionary> listDicByTypeNoRoot(@Param("type") String type);
+
+    List<Dictionary> listAllDicByTypeNoRoot(@Param("type") String type);
+
+    void update(Dictionary dictionary);
+
+    void delete(Integer id);
 }

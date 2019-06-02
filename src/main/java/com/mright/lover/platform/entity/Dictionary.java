@@ -15,6 +15,24 @@ public class Dictionary implements Serializable {
     private String value;
     private String type;
     private Integer sort;
+    private String appender;
+    private Integer status;
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
+
+    public String getAppender() {
+        return appender;
+    }
+
+    public void setAppender(String appender) {
+        this.appender = appender;
+    }
 
     public Integer getId() {
         return id;

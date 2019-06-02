@@ -4,7 +4,21 @@
 
     <select id="listDicByTypeNoRoot" resultType="com.mright.lover.platform.entity.Dictionary" parameterType="string">
         select
-         id, pid, `key`, `value`, `type`, sort from t_dictionary where `type` = #{type} and pid != "root"
+         id, pid, `key`, `value`, `type`, sort, appender, status from t_dictionary where `type` = #{type} and pid != "root" and status = 1
     </select>
 
+    <select id="listAllDicByTypeNoRoot" resultType="com.mright.lover.platform.entity.Dictionary" parameterType="string">
+        select
+         id, pid, `key`, `value`, `type`, sort, appender, status from t_dictionary where `type` = #{type} and pid != "root"
+    </select>
+
+    <update id="update" parameterType="com.mright.lover.platform.entity.Dictionary">
+        update t_dictionary
+        set `key` = #{key}, `value` = #{value} , sort = #{sort}, appender = #{appender}, status = #{status}
+        where id = #{id}
+    </update>
+
+    <delete id="delete" parameterType="int">
+        delete from t_dictionary where id = #{id}
+    </delete>
 </mapper>
