@@ -22,6 +22,7 @@
         <div class="page-header">
             <h1>
                 <small>用户管理数据</small>
+                <button class="btn btn-success" data-toggle="modal" onclick='addUser()' data-target="#myModal_user">添加用户</button>
             </h1>
         </div>
         <div class="top-first div-alert-parent">
@@ -30,7 +31,7 @@
                 <div class="panel-heading">家庭表数据</div>
 
                 <!-- Table -->
-                <table class="table prefecture-table">
+                <table class="table user-table">
                     <tr>
                         <th>用户名</th>
                         <th>密码</th>
@@ -39,12 +40,11 @@
                     </tr>
                 </table>
                 <!-- 模态框（Modal） -->
-                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                <div class="modal fade" id="myModal_user" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
                      aria-hidden="true">
 
                 </div>
             </div>
-
         </div>
     </div>
 </div>

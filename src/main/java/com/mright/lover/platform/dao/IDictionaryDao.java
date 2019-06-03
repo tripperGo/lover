@@ -21,4 +21,8 @@ public interface IDictionaryDao {
     void update(Dictionary dictionary);
 
     void delete(Integer id);
+
+    void insert(Dictionary dictionary);
+
+    Dictionary getDicByTypeAndPid(@Param("type") String type, @Param("pid") String pid);
 }

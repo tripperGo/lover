@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.mright.lover.platform.dao.ISysUserDao">
+    <update id="update">
+        update sys_user
+        set
+        username = #{username},
+        <if test="password != null and password != ''">
+            `password` = #{password},
+        </if>
+        family_id = #{familyId}
+        where id = #{id}
+    </update>
+    <delete id="delete">
+        delete from sys_user where id = #{id}
+    </delete>
 
     <select id="getUserById" resultType="com.mright.lover.platform.entity.SysUser" parameterType="int">
         select
@@ -14,6 +27,12 @@
         id, username, password, family_id familyId
         from sys_user
         where username = #{username}
+    </select>
+
+    <select id="list" resultType="com.mright.lover.platform.entity.SysUser">
+        select
+            id, username, family_id familyId
+        from sys_user
     </select>
 
     <insert id="createUser"

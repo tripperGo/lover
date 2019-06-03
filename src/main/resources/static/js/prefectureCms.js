@@ -26,9 +26,9 @@ function listPrefecture() {
                     "                            <img src=\"https://ss.csdn.net/p?https://mmbiz.qpic.cn/mmbiz_jpg/BnSNEaficFAYq7FiaHgyMc1aIyYPkmKI65EMNmmUViaDeuR4BJjYjDiaLxI8pjNKtmJMia1GrlHcUEDH3murbKfK1hA/640?wx_fmt=jpeg\"/>\n" +
                     "                        </td>\n" +
                     "                        <td>\n" +
-                    "                            <button class=\"btn btn-primary btn-sm\" data-toggle=\"modal\" onclick='modelBox(" + JSON.stringify(item) + ")' data-target=\"#myModal\">修改\n" +
+                    "                            <button class=\"btn btn-warning \" data-toggle=\"modal\" onclick='modelBox(" + JSON.stringify(item) + ")' data-target=\"#myModal\">修改\n" +
                     "                            </button>\n" +
-                    "                            <button class=\"btn btn-primary btn-sm\" data-toggle=\"modal\" onclick='deletePrefecture(" + item.id + ")' data-target=\"\">删除</button>\n" +
+                    "                            <button class=\"btn btn-danger \" data-toggle=\"modal\" onclick='deletePrefecture(" + item.id + ")' data-target=\"\">删除</button>\n" +
                     "                        </td>\n" +
                     "                    </tr>";
                 $(".prefecture-table").append(prefectureHtml);
@@ -62,7 +62,7 @@ function modelBox(item) {
         "                            <div class=\"modal-header\">\n" +
         "                                <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-hidden=\"true\">&times;\n" +
         "                                </button>\n" +
-        "                                <h4 class=\"modal-title\" id=\"myModalLabel\">修改" + item.value + "</h4>\n" +
+        "                                <h4 class=\"modal-title\">修改" + item.value + "</h4>\n" +
         "                            </div>\n" +
         "                            <div>\n" +
         "                                <div class=\"input-group field-param\">\n" +
@@ -155,4 +155,54 @@ function deletePrefecture(id) {
     } else {
         showAlert("id不能为空哦");
     }
+}
+
+function addPrefecture(){
+    $("#myModal .modal-dialog").empty();
+    var html = "<div class=\"modal-dialog\">\n" +
+        "                        <div class=\"modal-content\">\n" +
+        "                            <div class=\"modal-header\">\n" +
+        "                                <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-hidden=\"true\">&times;\n" +
+        "                                </button>\n" +
+        "                                <h4 class=\"modal-title\">添加分区布局</h4>\n" +
+        "                            </div>\n" +
+        "                            <div>\n" +
+        "                                <div class=\"input-group field-param\">\n" +
+        "                                    <span class=\"input-group-addon\" id=\"prefecture_value\">专区名称</span>\n" +
+        "                                    <input type=\"text\" class=\"form-control\" id='prefecture_value_input' placeholder=\"\" aria-describedby=\"basic-addon1\" value=\"\">\n" +
+        "                                </div>\n" +
+        "                                <div class=\"input-group field-param\">\n" +
+        "                                    <span class=\"input-group-addon\" id=\"prefecture_key\">专区唯一键</span>\n" +
+        "                                    <input type=\"text\" class=\"form-control\" id='prefecture_key_input' placeholder=\"\" aria-describedby=\"basic-addon1\" value=\"\">\n" +
+        "                                </div>\n" +
+        "                                <div class=\"input-group field-param\">\n" +
+        "                                    <span class=\"input-group-addon\" id=\"prefecture_status\">启用状态</span>\n" +
+        "                                    <div class=\"field-param-status\">\n" +
+        "                                        <label class=\"radio-inline\">\n" +
+        "                                            <input type=\"radio\" name=\"prefecture_status\" value=\"1\"> 启用\n" +
+        "                                        </label>\n" +
+        "                                        <label class=\"radio-inline\">\n" +
+        "                                            <input type=\"radio\" name=\"prefecture_status\" value=\"0\" checked> 禁用\n" +
+        "                                        </label>\n"+
+        "                                    </div>\n" +
+        "                                </div>\n" +
+        "                                <div class=\"input-group field-param\">\n" +
+        "                                    <span class=\"input-group-addon\" id=\"prefecture_sort\">排序</span>\n" +
+        "                                    <input type=\"text\" class=\"form-control\" id='prefecture_sort_input' placeholder=\"\" aria-describedby=\"basic-addon1\" value=\"\">\n" +
+        "                                </div>\n" +
+        "                                <div class=\"input-group field-param field-param_img\">\n" +
+        "                                    <span class=\"input-group-addon\" id=\"prefecture_img\">区块图片</span>\n" +
+        "                                    <img id='prefecture_img_input' src=''/>\n" +
+        "                                </div>\n" +
+        "                            </div>\n" +
+        "\n" +
+        "                            <div class=\"modal-footer\">\n" +
+        "                                <button type=\"button\" class=\"btn btn-default\" id='close-model' data-dismiss=\"modal\">关闭</button>\n" +
+        "<input type='hidden' id='prefectureId' value=''>" +
+        "                                <button type=\"button\" onclick='submitPrefecture()' class=\"btn btn-primary\">提交更改</button>\n" +
+        "                            </div>\n" +
+        "                        </div><!-- /.modal-content -->\n" +
+        "                    </div>";
+
+    $("#myModal").append(html);
 }

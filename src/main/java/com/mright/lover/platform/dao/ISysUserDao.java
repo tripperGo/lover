@@ -4,6 +4,8 @@ import com.mright.lover.platform.entity.SysUser;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 /**
  * @author: mright
  * @date: Created in 2019/6/1 6:35 PM
@@ -16,5 +18,11 @@ public interface ISysUserDao {
 
     SysUser getUserByUsername(@Param("username") String username);
 
-    void createUser(SysUser user);
+    int createUser(SysUser user);
+
+    List<SysUser> list();
+
+    int update(SysUser user);
+
+    int delete(Integer id);
 }

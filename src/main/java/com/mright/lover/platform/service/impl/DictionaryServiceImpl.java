@@ -40,11 +40,18 @@ public class DictionaryServiceImpl implements IDictionaryService {
     public String update(Dictionary dictionary) {
         String result;
         if (dictionary.getId() == null) {
-            result = "id不能为空";
-            return result;
+            // 新增
+            Dictionary rotoDic = iDictionaryDao.getDicByTypeAndPid("prefecture", "root");
+            dictionary.setPid(rotoDic != null ? rotoDic.getId() + "" : "");
+            dictionary.setType("prefecture");
+            iDictionaryDao.insert(dictionary);
+            result = "添加成功";
+        } else {
+            // 修改
+            iDictionaryDao.update(dictionary);
+            result = "修改成功";
         }
-        iDictionaryDao.update(dictionary);
-        result = "修改成功";
+
         return result;
     }
 

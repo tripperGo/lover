@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mright.lover.platform.dao.IFamilyDao">
+    <insert id="insert"
+            useGeneratedKeys="true"
+            keyProperty="id">
+        insert into sys_family
+            (family_name)
+        values (#{familyName})
+    </insert>
+    <update id="update">
+        update sys_family
+        set family_name = #{familyName}
+        where id = #{id}
+    </update>
+    <delete id="delete">
+        delete
+        from sys_family
+        where id = #{id}
+    </delete>
+
+    <select id="listFamily" resultType="com.mright.lover.platform.entity.SysFamily">
+        SELECT a.`id`,
+               a.`family_name` familyName
+        FROM `sys_family` a
+    </select>
+    <select id="listFamilyByIds" resultType="com.mright.lover.platform.entity.SysFamily">
+        SELECT `id`,
+               `family_name` familyName
+        FROM `sys_family`
+        <where>
+            id in
+            <foreach collection="familyIds" item="id" separator="," open="(" close=")">
+                #{id}
+            </foreach>
+        </where>
+    </select>
+    <select id="getFamilyById" resultType="com.mright.lover.platform.entity.SysFamily">
+        SELECT `id`,
+               `family_name` familyName
+        FROM `sys_family`
+        where id = #{id}
+    </select>
+</mapper>

@@ -2,6 +2,8 @@ package com.mright.lover.platform.service;
 
 import com.mright.lover.platform.entity.SysUser;
 
+import java.util.List;
+
 /**
  * @author: mright
  * @date: Created in 2019/6/1 6:39 PM
@@ -23,4 +25,10 @@ public interface ISysUserService {
      * @return 结果
      */
     SysUser createUser(SysUser user);
+
+    List<SysUser> list();
+
+    String update(SysUser user);
+
+    String delete(Integer id);
 }

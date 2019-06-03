@@ -13,6 +13,15 @@ public class SysUser implements Serializable {
     private String username;
     private String password;
     private Integer familyId;
+    private String familyName;
+
+    public String getFamilyName() {
+        return familyName;
+    }
+
+    public void setFamilyName(String familyName) {
+        this.familyName = familyName;
+    }
 
     public Integer getFamilyId() {
         return familyId;

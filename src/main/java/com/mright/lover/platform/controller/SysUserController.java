@@ -5,6 +5,8 @@ import com.mright.lover.platform.service.ISysUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 /**
  * @author: mright
  * @date: Created in 2019/6/1 6:38 PM
@@ -41,5 +43,20 @@ public class SysUserController {
     @PostMapping("/create")
     public SysUser createUser(SysUser user) {
         return iSysUserService.createUser(user);
+    }
+
+    @GetMapping("/list")
+    public List<SysUser> list() {
+        return iSysUserService.list();
+    }
+
+    @PostMapping("/update")
+    public String update(SysUser user){
+        return iSysUserService.update(user);
+    }
+
+    @GetMapping("/delete")
+    public String delete(Integer id){
+        return iSysUserService.delete(id);
     }
 }

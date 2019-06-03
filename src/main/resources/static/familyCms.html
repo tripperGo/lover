@@ -22,6 +22,7 @@
         <div class="page-header">
             <h1>
                 <small>家庭管理管理</small>
+                <button class="btn btn-success" data-toggle="modal" onclick='addFamily()' data-target="#myModal_family">添加家庭</button>
             </h1>
         </div>
         <div class="top-first div-alert-parent">
@@ -30,14 +31,14 @@
                 <div class="panel-heading">家庭表数据</div>
 
                 <!-- Table -->
-                <table class="table prefecture-table">
+                <table class="table family-table">
                     <tr>
                         <th>家庭名称</th>
                         <th>操作</th>
                     </tr>
                 </table>
                 <!-- 模态框（Modal） -->
-                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                <div class="modal fade" id="myModal_family" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
                      aria-hidden="true">
 
                 </div>
