@@ -21,16 +21,17 @@
     <div>
         <div class="page-header">
             <h1>
-                <small>一起做的事情的数据</small>
+                <small>一起做的事情管理</small>
+                <button class="btn btn-success" data-toggle="modal" onclick='addSomething()' data-target="#myModal_user">添加一起做的事情</button>
             </h1>
         </div>
         <div class="top-first div-alert-parent">
             <div class="panel panel-default">
                 <!-- Default panel contents -->
-                <div class="panel-heading">一起做的事情管理</div>
+                <div class="panel-heading">一起做的事情的数据</div>
 
                 <!-- Table -->
-                <table class="table prefecture-table">
+                <table class="table something-table">
                     <tr>
                         <th>标题</th>
                         <th>所属家庭</th>
@@ -38,15 +39,15 @@
                         <th>起始时间</th>
                         <th>截止时间</th>
                         <th>去过了几次</th>
+                        <th>操作</th>
                     </tr>
                 </table>
                 <!-- 模态框（Modal） -->
-                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                <div class="modal fade" id="myModal_user" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
                      aria-hidden="true">
 
                 </div>
             </div>
-
         </div>
     </div>
 </div>

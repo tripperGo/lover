@@ -9,4 +9,10 @@ public interface ISomethingService {
     List<Something> listSomethingByKey(String key, String username);
 
     List<Something> listSomething(String username);
+
+    List<Something> listAllSomething();
+
+    String update(Something something);
+
+    String delete(Integer id);
 }

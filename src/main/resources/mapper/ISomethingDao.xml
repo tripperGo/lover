@@ -1,31 +1,90 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.mright.lover.platform.dao.ISomethingDao">
+    <insert id="insert">
+        INSERT INTO `t_somethings` (title,
+                                    family_id,
+                                    prefecture_key,
+                                    start_time,
+                                    end_time,
+                                    go_over)
+        values (#{title}, #{familyId}, #{prefectureKey}, #{startTime}, #{endTime}, #{goOver})
+    </insert>
+    <update id="update">
+        update t_somethings
+        <set>
+            <if test="familyId != null and familyId != ''">
+                `family_id` = #{familyId},
+            </if>
+            <if test="prefectureKey != null and prefectureKey != ''">
+                `prefecture_key` = #{prefectureKey},
+            </if>
+            <if test="startTime">
+                `start_time` = #{startTime},
+            </if>
+            <if test="endTime">
+                `end_time` = #{endTime},
+            </if>
+            <if test="goOver != null and goOver != ''">
+                `go_over` = #{goOver},
+            </if>
+            title = #{title}
+        </set>
+           where id = #{id}
+    </update>
+    <delete id="delete">
+        delete from t_somethings where id = #{id}
+    </delete>
 
     <select id="listSomethingByKeyAndUsername" resultType="com.mright.lover.platform.entity.Something"
             parameterType="string">
-        SELECT
-        a.id, a.title, a.family_id familyId, a.prefecture_key prefectureKey, a.start_time startTime, a.end_time endTime, a.go_over goOver
-        FROM
-        `t_somethings` a
-        LEFT JOIN `sys_family` b
-        ON a.`family_id` = b.`id`
-        LEFT JOIN `sys_user` c
-        ON b.`id` = c.`family_id`
-        WHERE
-        a.prefecture_key = #{key} AND c.`username`=#{username}
+        SELECT a.id,
+               a.title,
+               a.family_id      familyId,
+               a.prefecture_key prefectureKey,
+               a.start_time     startTime,
+               a.end_time       endTime,
+               a.go_over        goOver
+        FROM `t_somethings` a
+                 LEFT JOIN `sys_family` b
+                           ON a.`family_id` = b.`id`
+                 LEFT JOIN `sys_user` c
+                           ON b.`id` = c.`family_id`
+        <where>
+            1 = 1
+            <if test="key != -1">
+            and a.prefecture_key = #{key}
+            </if>
+
+            AND c.`username` = #{username}
+        </where>
+
     </select>
 
     <select id="listSomething" resultType="com.mright.lover.platform.entity.Something">
-        SELECT
-        a.id, a.title, a.family_id familyId, a.prefecture_key prefectureKey, a.start_time startTime, a.end_time endTime, a.go_over goOver
-        FROM
-        `t_somethings` a
-        LEFT JOIN `sys_family` b
-        ON a.`family_id` = b.`id`
-        LEFT JOIN `sys_user` c
-        ON b.`id` = c.`family_id`
-        WHERE c.`username`=#{username}
+        SELECT a.id,
+               a.title,
+               a.family_id      familyId,
+               a.prefecture_key prefectureKey,
+               a.start_time     startTime,
+               a.end_time       endTime,
+               a.go_over        goOver
+        FROM `t_somethings` a
+                 LEFT JOIN `sys_family` b
+                           ON a.`family_id` = b.`id`
+                 LEFT JOIN `sys_user` c
+                           ON b.`id` = c.`family_id`
+        WHERE c.`username` = #{username}
+    </select>
+    <select id="listAllSomething" resultType="com.mright.lover.platform.entity.Something">
+        SELECT a.id,
+               a.title,
+               a.family_id      familyId,
+               a.prefecture_key prefectureKey,
+               a.start_time     startTime,
+               a.end_time       endTime,
+               a.go_over        goOver
+        FROM `t_somethings` a
     </select>
 
 </mapper>

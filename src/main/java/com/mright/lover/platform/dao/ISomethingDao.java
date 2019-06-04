@@ -12,4 +12,12 @@ public interface ISomethingDao {
     List<Something> listSomethingByKeyAndUsername(@Param("key") String key, @Param("username") String username);
 
     List<Something> listSomething(@Param("username") String username);
+
+    List<Something> listAllSomething();
+
+    int insert(Something something);
+
+    int update(Something something);
+
+    int delete(Integer id);
 }

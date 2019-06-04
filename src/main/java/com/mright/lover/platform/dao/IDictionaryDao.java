@@ -5,6 +5,7 @@ import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Set;
 
 /**
  * @author: mright
@@ -25,4 +26,6 @@ public interface IDictionaryDao {
     void insert(Dictionary dictionary);
 
     Dictionary getDicByTypeAndPid(@Param("type") String type, @Param("pid") String pid);
+
+    List<Dictionary> listDicByTypeAndInKeysNoRoot(@Param("type") String type, @Param("prefectureKeys") Set<String> prefectureKeys);
 }

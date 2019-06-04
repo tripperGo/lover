@@ -5,10 +5,7 @@ import com.mright.lover.platform.service.ISomethingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -31,5 +28,20 @@ public class SomethingController {
     @GetMapping("/list")
     public List<Something> listSomething() {
         return iSomethingService.listSomething(((UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUsername());
+    }
+
+    @GetMapping("/listAll")
+    public List<Something> listAllSomething() {
+        return iSomethingService.listAllSomething();
+    }
+
+    @PostMapping("/update")
+    public String update(Something something){
+        return iSomethingService.update(something);
+    }
+
+    @GetMapping("/delete")
+    public String delete(Integer id){
+        return iSomethingService.delete(id);
     }
 }

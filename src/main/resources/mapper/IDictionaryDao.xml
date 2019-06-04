@@ -62,6 +62,22 @@
           and pid = #{pid}
         limit 1
     </select>
+    <select id="listDicByTypeAndInKeysNoRoot" resultType="com.mright.lover.platform.entity.Dictionary">
+        select id,
+               pid,
+               `key`,
+               `value`,
+               `type`,
+               sort,
+               appender,
+               status
+        from t_dictionary
+        where `type` = #{type}
+          and `key` in
+        <foreach collection="prefectureKeys" item="key" separator="," open="(" close=")">
+            #{key}
+        </foreach>
+    </select>
 
     <update id="update" parameterType="com.mright.lover.platform.entity.Dictionary">
         update t_dictionary

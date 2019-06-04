@@ -72,7 +72,6 @@ function modelBoxUser(item) {
 }
 
 function loadFamilySelect(familyId, familyName) {
-    // if (familyId) {
     $.ajax({
         url: "family/list",
         data: {},
@@ -99,7 +98,6 @@ function loadFamilySelect(familyId, familyName) {
             $("#family-select").append(familyMenu);
         }
     });
-    // }
 }
 
 function submitUser() {
@@ -109,26 +107,26 @@ function submitUser() {
     var password = $("#password_id").val();
     if (!username) {
         showAlertUser("用户名不能置为空");
-    }
-    if (!familyId) {
+    } else if (!familyId) {
         showAlertUser("请选择一个家庭");
+    } else {
+        $.ajax({
+            url: "user/update",
+            data: {
+                id: id,
+                familyId: familyId,
+                username: username,
+                password: password
+            },
+            type: "POST",
+            dataType: "text",
+            success: function (data) {
+                $("#close-model").click();
+                showAlertUser(data);
+                listUser();
+            }
+        });
     }
-    $.ajax({
-        url: "user/update",
-        data: {
-            id: id,
-            familyId: familyId,
-            username: username,
-            password: password
-        },
-        type: "POST",
-        dataType: "text",
-        success: function (data) {
-            $("#close-model").click();
-            showAlertUser(data);
-            listUser();
-        }
-    });
 }
 
 function changeFamily(item) {

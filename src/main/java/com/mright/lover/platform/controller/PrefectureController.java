@@ -28,4 +28,5 @@ public class PrefectureController {
     public String delete(Integer id) {
         return iDictionaryService.delete(id);
     }
+
 }
