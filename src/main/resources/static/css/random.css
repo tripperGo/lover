@@ -1,0 +1,52 @@
+/*html, body {
+    padding: 0px;
+    margin: 0px;
+    font-size: 12px;
+}
+
+body {
+    margin: 50px;
+}*/
+
+#result {
+    height: 20px;
+    margin-bottom: 10px;
+}
+
+#result div {
+    width: 200px;
+    box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.2);
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+    height: auto;
+    background-color: #abeeee;
+}
+
+
+.lot-div-main{
+    margin-top: 50px;
+}
+
+.control-btn{
+    margin-left: 48%;
+    margin-top: 20px;
+}
+
+.lot-div{
+    width: 200px;
+    box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.2);
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+    height: 50px;
+    background-color: #FEC;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.alert-danger-msg{
+    z-index: 100;
+}
