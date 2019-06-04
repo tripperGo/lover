@@ -50,7 +50,7 @@ function Start(btn) {
         timerID = setInterval(function () {
             getEleById("num").index = parseInt(Math.random() * (arrData.length));
             getEleById("num").innerHTML = arrData[getEleById("num").index];
-        }, 30);
+        }, 70);
         btn.value = "暂停";
     } else {
         var div = document.createElement("div");
