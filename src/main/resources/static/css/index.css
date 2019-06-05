@@ -13,3 +13,14 @@
 .card-prefecture-main .card-prefecture-parent .thumbnail div{
     margin-left: 40%;
 }
+
+.img-index-layout{
+    box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.5);
+    border: 1px solid #eee;
+    filter: blur(5px);
+    height: 170px;
+}
+
+.img-index-layout:hover{
+    filter: blur(0px);
+}

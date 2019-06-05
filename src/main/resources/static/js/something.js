@@ -5,6 +5,7 @@ var arrData = [], timerID = 0;
 })(jQuery);
 
 function initSomething() {
+    arrData = []
     var params = document.location.toString().split("?");
     if (params && params.length > 0) {
         var keyStr = params[1];

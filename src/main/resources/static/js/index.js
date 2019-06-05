@@ -14,7 +14,7 @@ function initPrefecture() {
                 var item = data[index];
                 var prefectureHtml = "<div class=\"col-xs-6 col-md-3\">\n" +
                     "                <a href=\"/something.html?key=" + item.key + "\" class=\"thumbnail\">\n" +
-                    "                    <img src=\'" + item.appender + "\' alt=\"...\">\n" +
+                    "                    <img class='img-index-layout' src=\'" + item.appender + "\' alt=\"...\">\n" +
                     "                    <div>" + item.value + "</div>\n" +
                     "                </a>\n" +
                     "            </div>";
