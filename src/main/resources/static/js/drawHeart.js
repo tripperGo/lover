@@ -59,12 +59,12 @@ var KeylightWorld = new function () {
 
         if (canvas && canvas.getContext) {
 
-            for (var i = 1; i <= NUMBER_OF_CHORDS; i++) {
+            /*for (var i = 1; i <= NUMBER_OF_CHORDS; i++) {
                 var chord = new Audio('http://hakim.se/experiments/html5/keylight/03/assets/' + i + (useMP3 ? '.mp3' : '.ogg'));
                 chord.load();
 
                 audioChords.push(chord);
-            }
+            }*/
 
             // Setup the playback channels
             for (var i = 0; i <= NUMBER_OF_CHANNELS; i++) {
