@@ -53,6 +53,7 @@ function Start(btn) {
             getEleById("num").innerHTML = arrData[getEleById("num").index];
         }, 70);
         btn.value = "暂停";
+        randomStop()
     } else {
         var div = document.createElement("div");
         div.innerHTML = getEleById("num").innerHTML;
@@ -60,6 +61,15 @@ function Start(btn) {
         arrData.splice(getEleById("num").index, 1);
         btn.value = "开始";
     }
+}
+
+function randomStop() {
+    var randomTime = Math.floor(Math.random() * 5000 + 1);
+
+    showAlertSomething("抽签结果会在5--10s内随机结束")
+    setTimeout(function () {
+        $("#btnStart").click()
+    }, randomTime + 5000);
 }
 
 function showAlertSomething(msg) {
