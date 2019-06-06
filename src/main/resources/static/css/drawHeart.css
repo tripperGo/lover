@@ -1,0 +1,49 @@
+body,
+html {
+    background-color: #04151a;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+canvas {
+}
+
+input[type="range"] {
+    position: relative;
+    top: 60px;
+}
+
+.message {
+    font-size: 11px;
+    color: #ffffff;
+    display: none;
+    text-align: center;
+    background-color: #000000;
+    width: 100%;
+    padding: 10px 0;
+    z-index: 6;
+}
+
+#controls {
+    position: absolute;
+    z-index: 10;
+    font-size: 10px;
+    color: #aaaaaa;
+    padding: 5px;
+}
+
+#controls a {
+    font-size: 10px;
+    color: #cccccc;
+    padding: 2px;
+}
+
+#controls a:hover {
+    background-color: #000000;
+}
+
+#controls span.browser {
+    margin-left: 40px;
+    font-style: italic;
+}
