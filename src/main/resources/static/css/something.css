@@ -5,3 +5,7 @@
 .top-main {
     margin-top: 20px;
 }
+
+body{
+    background: url(http://www.mright.com.cn:8081/bg.jpg) repeat;
+}
