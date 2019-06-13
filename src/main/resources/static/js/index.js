@@ -37,7 +37,7 @@ function initPlanning() {
             for (var index in data) {
                 var item = data[index];
                 var planningHtml = "<div class=\"col-xs-6 col-md-3\">\n" +
-                    "                <a href=\"/something.html?key=" + item.key + "\" class=\"thumbnail text-center\">\n" +
+                    "                <a href=\"/planning.html?key=" + item.key + "\" class=\"thumbnail text-center\">\n" +
                     "                    <img class='img-index-layout-shadow' src=\'" + item.appender + "\' alt=\"...\">\n" +
                     "                    <div>" + item.value + "</div>\n" +
                     "                </a>\n" +
