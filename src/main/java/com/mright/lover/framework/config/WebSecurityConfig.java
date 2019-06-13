@@ -29,7 +29,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .loginProcessingUrl("/login")
                 .and()
                 .authorizeRequests()
-                .antMatchers("css/style.css", "/user/**", "/login", "/login.html", "/css/**", "/js/**", "/images/**")
+                .antMatchers("/login.html", "/user/**", "/login", "/css/**", "/js/**", "/images/**")
                 .permitAll()
                 .anyRequest()
                 .authenticated()
