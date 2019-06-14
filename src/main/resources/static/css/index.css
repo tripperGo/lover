@@ -15,22 +15,34 @@
 }
 
 .img-index-layout{
-    filter: blur(5px);
+    /*filter: blur(5px);*/
 }
 
 .img-index-layout:hover{
-    filter: blur(0px);
+    /*filter: blur(0px);*/
 }
 
 .img-index-layout-shadow:hover{
-    width: 95%;
+    /*width: 95%;*/
+    transform: translate(0,-5px);
+    box-shadow: 0 14px 20px 0 rgba(200,200,200,.8);
 }
 
 .img-index-layout-shadow{
     box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.5);
-    border: 1px solid #eee;
+    /*border: 1px solid #eee;
     height: 170px;
-    text-align: center;
+    text-align: center;*/
+    flex: 1;
+    max-width: calc((100% - 96px)/4);
+    margin-right: 32px;
+    font-size: 14px;
+    background-color: #fff;
+    cursor: pointer;
+    transition: all .3s;
+    /*box-shadow: 0 8px 20px 0 rgba(224,224,224,.5);*/
+    border-radius: 4px;
+    overflow: hidden;
 }
 
 .text-center{
