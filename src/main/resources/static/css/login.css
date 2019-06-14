@@ -6,3 +6,25 @@
     float: right;
     color: #f8f7e8;
 }
+
+.btn-bottom{
+    margin-bottom: 50px;
+}
+
+.out-main:hover{
+    transform: scale(1.03);
+}
+
+.out-main{
+    transition: all 0.6s;
+}
+
+.copyright{
+    color: #999;
+    font-size: 12px;
+    line-height: 20px;
+    margin-bottom: 30px;
+    margin-top: 25px;
+    text-align: center;
+    font-weight: 400;
+}
